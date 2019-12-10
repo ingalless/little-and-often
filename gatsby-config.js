@@ -1,11 +1,13 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
-    author: `Kyle Mathews`,
-    description: `A starter blog demonstrating what Gatsby can do.`,
+    title: `Little and Often`,
+    author: `Jonathan Ingall`,
+    nickname: "Ingalless",
+    description: `Professional Developer`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `ingalless2`,
+      github: "ingalless",
     },
   },
   plugins: [
@@ -61,7 +63,7 @@ module.exports = {
         short_name: `GatsbyJS`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#663399`,
+        theme_color: `#0F7173`,
         display: `minimal-ui`,
         icon: `content/assets/gatsby-icon.png`,
       },
