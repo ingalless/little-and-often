@@ -1,3 +1,5 @@
+import "./layout.less"
+
 import React from "react"
 import { Link } from "gatsby"
 

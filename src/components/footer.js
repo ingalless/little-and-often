@@ -29,15 +29,23 @@ export default function Footer() {
         textAlign: "right",
         padding: "0 6px",
         fontSize: "smaller",
+        height: "50px",
       }}
     >
-      <span>Authored by {author} | </span>
+      <span>By {author} | </span>
       <a href={`https://twitter.com/${social.twitter}`} target="_blank">
         Twitter
       </a>
       {" | "}
       <a href={`https://github.com/${social.github}`} target="_blank">
         Github
+      </a>
+      {" | "}
+      <a
+        href={`https://uk.linkedin.com/in/jonathan-ingall-393305124`}
+        target="_blank"
+      >
+        LinkedIn
       </a>
     </footer>
   )
