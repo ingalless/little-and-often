@@ -1,5 +1,16 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import styled from "@emotion/styled"
+
+const StyledFooter = styled.footer`
+  text-align: right;
+  padding: 0 6px;
+  font-size: smaller;
+  height: 50px;
+  @media screen and (max-width: 800px) {
+    text-align: center;
+  }
+`
 
 export default function Footer() {
   const data = useStaticQuery(graphql`
@@ -24,14 +35,7 @@ export default function Footer() {
   `)
   const { author, social } = data.site.siteMetadata
   return (
-    <footer
-      style={{
-        textAlign: "right",
-        padding: "0 6px",
-        fontSize: "smaller",
-        height: "50px",
-      }}
-    >
+    <StyledFooter>
       <span>By {author} | </span>
       <a href={`https://twitter.com/${social.twitter}`} target="_blank">
         Twitter
@@ -47,6 +51,6 @@ export default function Footer() {
       >
         LinkedIn
       </a>
-    </footer>
+    </StyledFooter>
   )
 }

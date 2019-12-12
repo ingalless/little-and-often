@@ -1,14 +1,27 @@
-import "./layout.less"
-
 import React from "react"
 import { Link } from "gatsby"
+import { Global, css } from "@emotion/core"
+import color from "color"
 
-import { rhythm, scale } from "../utils/typography"
-import Nav from "./nav"
-import Footer from "./footer"
+import { rhythm, scale } from "../../utils/typography"
+import Nav from "./../nav"
+import Footer from "./../footer"
+
+const primaryColor = color("#6a4c93")
+const globalStyles = css`
+  a {
+    color: #6a4c93;
+    &:hover: {
+      color: ${primaryColor
+        .darken(0.2)
+        .hex()
+        .toString()};
+    }
+  }
+`
 
 export default function(props) {
-  const { location, title, children } = props
+  const { location, title, children, container = false } = props
   const rootPath = `${__PATH_PREFIX__}/`
   let header
 
@@ -22,6 +35,7 @@ export default function(props) {
             marginBottom: 0,
             fontWeight: 100,
             letterSpacing: "1.3px",
+            fontWeight: 100,
           }}
         >
           <Link
@@ -53,6 +67,8 @@ export default function(props) {
         style={{
           marginTop: 0,
           marginBottom: 0,
+          fontWeight: 600,
+          letterSpacing: -0.2,
         }}
       >
         <Link
@@ -70,14 +86,15 @@ export default function(props) {
   }
   return (
     <>
+      <Global styles={globalStyles} />
       <div style={{ minHeight: "calc(100vh - 50px" }}>
         <Nav />
         <div
           style={{
             marginLeft: `auto`,
             marginRight: `auto`,
-            maxWidth: rhythm(24),
-            padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+            maxWidth: container ? rhythm(24) : "100%",
+            padding: `${rhythm(3 / 4)}`,
           }}
         >
           <header>{header}</header>
@@ -88,7 +105,7 @@ export default function(props) {
             marginLeft: `auto`,
             marginRight: `auto`,
             maxWidth: rhythm(24),
-            padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+            padding: `${rhythm(3 / 4)}`,
             minHeight: "calc(100vh - 300px - 50px)",
           }}
         >
