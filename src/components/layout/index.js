@@ -20,69 +20,67 @@ const globalStyles = css`
   }
 `
 
+const HomeHeader = ({ title }) => (
+  <>
+    <h1
+      style={{
+        ...scale(2),
+        marginTop: rhythm(1.5),
+        marginBottom: 0,
+        letterSpacing: "1.3px",
+        fontWeight: 100,
+      }}
+    >
+      <Link
+        style={{
+          boxShadow: `none`,
+          textDecoration: `none`,
+          color: `inherit`,
+        }}
+        to={`/`}
+      >
+        {title}
+      </Link>
+    </h1>
+    <h2
+      style={{
+        marginBottom: 0,
+        marginTop: rhythm(-0.2),
+        fontWeight: 100,
+        color: "#666",
+      }}
+    >
+      by Ingalless
+    </h2>
+  </>
+)
+const BlogHeader = ({ title }) => (
+  <h3
+    style={{
+      marginTop: 0,
+      marginBottom: 0,
+      fontWeight: 600,
+      letterSpacing: -0.2,
+    }}
+  >
+    <Link
+      style={{
+        boxShadow: `none`,
+        textDecoration: `none`,
+        color: `inherit`,
+      }}
+      to={`/`}
+    >
+      {title}
+    </Link>
+  </h3>
+)
+
 export default function(props) {
   const { location, title, children, container = false } = props
   const rootPath = `${__PATH_PREFIX__}/`
-  let header
+  const isHome = location.pathname === rootPath
 
-  if (location.pathname === rootPath) {
-    header = (
-      <>
-        <h1
-          style={{
-            ...scale(2),
-            marginTop: rhythm(1.5),
-            marginBottom: 0,
-            letterSpacing: "1.3px",
-            fontWeight: 100,
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
-            }}
-            to={`/`}
-          >
-            {title}
-          </Link>
-        </h1>
-        <h2
-          style={{
-            marginBottom: 0,
-            marginTop: rhythm(-0.2),
-            fontWeight: 100,
-            color: "#666",
-          }}
-        >
-          by Ingalless
-        </h2>
-      </>
-    )
-  } else {
-    header = (
-      <h3
-        style={{
-          marginTop: 0,
-          marginBottom: 0,
-          fontWeight: 600,
-          letterSpacing: -0.2,
-        }}
-      >
-        <Link
-          style={{
-            boxShadow: `none`,
-            textDecoration: `none`,
-            color: `inherit`,
-          }}
-          to={`/`}
-        >
-          {title}
-        </Link>
-      </h3>
-    )
-  }
   return (
     <>
       <Global styles={globalStyles} />
@@ -96,7 +94,13 @@ export default function(props) {
             padding: `${rhythm(3 / 4)}`,
           }}
         >
-          <header>{header}</header>
+          <header>
+            {isHome ? (
+              <HomeHeader title={title} />
+            ) : (
+              <BlogHeader title={title} />
+            )}
+          </header>
         </div>
 
         <div
