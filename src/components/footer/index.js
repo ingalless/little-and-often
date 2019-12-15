@@ -37,17 +37,26 @@ export default function Footer() {
   return (
     <StyledFooter>
       <span>By {author} | </span>
-      <a href={`https://twitter.com/${social.twitter}`} target="_blank">
+      <a
+        href={`https://twitter.com/${social.twitter}`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         Twitter
       </a>
       {" | "}
-      <a href={`https://github.com/${social.github}`} target="_blank">
+      <a
+        href={`https://github.com/${social.github}`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         Github
       </a>
       {" | "}
       <a
         href={`https://uk.linkedin.com/in/jonathan-ingall-393305124`}
         target="_blank"
+        rel="noopener noreferrer"
       >
         LinkedIn
       </a>
