@@ -5,11 +5,23 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
+import styled from "@emotion/styled"
+
+const Excerpt = styled.section`
+  color: #555;
+  ${scale(-1 / 5)};
+  text-align: center;
+  padding: ${rhythm(1)} ${rhythm(2)};
+  @media screen and (max-width: 600px) {
+    padding: ${rhythm(1)} 0;
+  }
+`
 
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
+
     const { previous, next } = this.props.pageContext
 
     return (
@@ -38,6 +50,7 @@ class BlogPostTemplate extends React.Component {
               {post.frontmatter.date}
             </p>
           </header>
+          <Excerpt>{post.frontmatter.description}</Excerpt>
           <section dangerouslySetInnerHTML={{ __html: post.html }} />
           <hr
             style={{
