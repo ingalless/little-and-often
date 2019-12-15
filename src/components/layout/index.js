@@ -33,7 +33,6 @@ export default function(props) {
             ...scale(2),
             marginTop: rhythm(1.5),
             marginBottom: 0,
-            fontWeight: 100,
             letterSpacing: "1.3px",
             fontWeight: 100,
           }}
@@ -87,7 +86,7 @@ export default function(props) {
   return (
     <>
       <Global styles={globalStyles} />
-      <div style={{ minHeight: "calc(100vh - 50px" }}>
+      <div style={{ minHeight: "calc(100vh - 50px)" }}>
         <Nav />
         <div
           style={{
