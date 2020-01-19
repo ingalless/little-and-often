@@ -7,6 +7,7 @@ import styled from "@emotion/styled"
 const Photo = styled.img`
   max-height: 80vh;
   width: auto;
+  margin: 0;
 `
 
 export default function About() {
