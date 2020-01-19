@@ -3,13 +3,10 @@ import { useStaticQuery, graphql } from "gatsby"
 import styled from "@emotion/styled"
 
 const StyledFooter = styled.footer`
-  text-align: right;
   padding: 0 6px;
   font-size: smaller;
   height: 50px;
-  @media screen and (max-width: 800px) {
-    text-align: center;
-  }
+  text-align: center;
 `
 
 export default function Footer() {
