@@ -7,10 +7,13 @@ export default function Nav(props) {
       style={{
         display: "flex",
         alignItems: "center",
-        justifyContent: "flex-end",
+        justifyContent: "space-between",
         padding: "8px 16px",
       }}
     >
+      <div>
+        <Link to="/">Home</Link>
+      </div>
       <div>
         <Link to="/blog">Blog</Link>
       </div>
