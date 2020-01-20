@@ -36,7 +36,7 @@ const BlogHeader = ({ title }) => (
         textDecoration: `none`,
         color: `inherit`,
       }}
-      to={`/`}
+      to="/blog"
     >
       {title}
     </Link>
